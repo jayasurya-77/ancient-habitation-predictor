@@ -1,0 +1,25 @@
+# General Python ignores
+__pycache__/
+*.py[cod]
+# Virtual environment
+venv/
+.venv/
+.env/
+# Jupyter notebooks
+.ipynb_checkpoints/
+# OS files
+.DS_Store
+Thumbs.db
+# Logs
+*.log
+# Data files (ignore large datasets except models)
+*.csv
+*.tsv
+# Ignore all model files by default
+*.cbm
+*.keras
+# But include the specific trained artifacts
+!catboost_model.cbm
+!pollen_model.keras
+# Ensure mapping JSON is tracked
+!pollen_class_mapping.json
