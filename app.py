@@ -29,10 +29,8 @@ def get_catboost():
 def get_pollen_model():
     import tensorflow as tf
 
-    return tf.keras.models.load_model(
-        str(POLLEN_PATH),
-        compile=False,
-    )
+    from pollen_compat import load_pollen_model
+    return load_pollen_model()
 
 @st.cache_data
 def get_mapping():
@@ -176,8 +174,10 @@ with tab_predict:
 
                 if pred == 1:
                     st.success("Model output: Ancient Human Settlement")
+                    st.markdown("## HUMAN SETTLEMENT: YES")
                 else:
                     st.info("Model output: No Ancient Human Settlement")
+                    st.markdown("## HUMAN SETTLEMENT: NO")
 
                 st.metric("Model score for predicted class", f"{confidence:.1%}")
 
